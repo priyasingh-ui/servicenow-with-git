@@ -4,7 +4,16 @@
         <active>true</active>
         <client>true</client>
         <client_script_v2><![CDATA[function onClick(g_form) {
-
+    // Get the short description value
+    var shortDescription = g_form.getValue('short_description');
+    
+    // Set the description field with the short description value
+    if (shortDescription) {
+        g_form.setValue('description', shortDescription);
+        g_form.showFieldMsg('description', 'Description has been auto-filled from Short Description', 'info');
+    } else {
+        g_form.showFieldMsg('short_description', 'Please enter a Short Description first', 'error');
+    }
 }]]></client_script_v2>
         <comments/>
         <condition/>
